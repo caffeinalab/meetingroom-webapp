@@ -4,5 +4,6 @@ CREATE TABLE `rooms` (
   `name` varchar(255) DEFAULT NULL,
   `capacity` varchar(3) DEFAULT NULL,
   `arrow` enum('left','right') DEFAULT NULL,
+  `video_url` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

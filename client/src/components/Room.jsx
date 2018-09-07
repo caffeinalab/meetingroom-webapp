@@ -19,7 +19,7 @@ class Header extends React.Component {
       <React.Fragment>
         <div ref={video => this.videoElement = video} className="room-video-wrapper">
           <div className="room-video-wrapper-inner">
-            <video className="room-video" src={"/videos/" + this.props.id + ".mp4"} autoPlay={true} loop={true} muted="muted" />
+            <video className="room-video" src={this.props.video_url} autoPlay={true} loop={true} muted="muted" />
           </div>
         </div>
         <div className="room-header">
