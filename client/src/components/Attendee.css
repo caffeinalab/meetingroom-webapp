@@ -1,0 +1,120 @@
+.attendee {
+    display: inline-block;
+    margin-right: 22px;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.attendee .avatar {
+    position: relative;
+    display: inline-block;
+}
+
+.attendee .name {
+    display: none;
+    vertical-align: middle;
+}
+
+.attendee .status {
+    position: absolute;
+    background: #fff;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    bottom: -9%;
+    right: -49%;
+    border: 3px solid #000;
+}
+
+@keyframes ghost {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.4;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-30px);
+    }
+
+    60% {
+        transform: translateY(-20px);
+    }
+}
+
+.attendee.-organizer {
+    margin-right: 34px;
+}
+
+.attendee.-accepted .status {
+    background: #26C26C url("/img/tick.svg") center no-repeat;
+    background-size: 60%;
+}
+
+.attendee.-needsAction .status {
+    background: #797879 url("/img/qm.svg") center no-repeat;
+    ;
+    background-size: 40%;
+}
+
+.attendee.-tentative .status {
+    background: #D99449 url("/img/qm.svg") center no-repeat;
+    ;
+    background-size: 40%;
+}
+
+.attendee.-declined .status {
+    background: #CF5443 url("/img/declined.svg") center no-repeat;
+    ;
+    background-size: 80%;
+}
+
+.attendee.-declined .sb-avatar {}
+
+.attendee.-tentative .sb-avatar,
+.attendee.-needsAction .sb-avatar {}
+
+.now .attendee.-accepted .sb-avatar {}
+
+.attendee .sb-avatar {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.attendees.-full {}
+
+.attendees.-full .attendee {
+    display: block;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.attendees.-full .attendee .sb-avatar,
+.attendees.-full .attendee .sb-avatar__text,
+.attendees.-full .attendee .sb-avatar__image {
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 18px !important;
+}
+
+.attendees.-full .attendee .name {
+    font-size: 18px;
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.attendees.-full .attendee.-organizer {}

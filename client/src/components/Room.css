@@ -1,0 +1,135 @@
+.room .now-alert {
+  border-radius: 50px;
+  padding: 8px 12px 6px 12px;
+  line-height: 1em;
+  font-weight: 800;
+  margin-bottom: 30px;
+  display: inline-block;
+  color: #fff;
+  background: #00C3F8;
+}
+
+.room .now-alert.free {
+  background-color: #CF5443;
+}
+
+.room .next-alert {
+  background: url("/img/next-events.gif") left center no-repeat;
+  background-size: 20px;
+  font-weight: 800;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 40px;
+  margin-bottom: 30px;
+}
+
+.room .room-arrow {
+  font-size: 40px;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.room .attendees {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.room .clock-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 46px;
+  font-weight: bold;
+  color: #e3e927;
+  z-index: 4;
+}
+
+.room {
+  padding-top: 400px;
+}
+
+.room .room-video-wrapper {
+  height: 500px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.room .room-video-wrapper-inner {
+  height: 400px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.room .room-video-wrapper-inner video {
+  width: 100%;
+}
+
+.room .room-video-wrapper:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, .5) 90%,
+    rgba(0, 0, 0, 0) 100%);
+  content: '';
+  z-index: 3;
+}
+
+.room .room-video-wrapper:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  height: 200px;
+  background: rgba(0, 0, 0, .4);
+  content: '';
+  z-index: 3;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 100%);
+}
+
+.room .room-header {
+  padding: 40px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+
+.room .now {
+  padding: 40px;
+  padding-top: 100px;
+}
+
+.room .next {
+  padding: 40px;
+}
+
+.room .quote {
+  padding: 20px 40px;
+}
+
+.room .quote .slick-slide {
+  outline: none !important;
+}
+
+.room .quote .quote-element {
+  padding: 20px;
+  font-size: 20px;
+}

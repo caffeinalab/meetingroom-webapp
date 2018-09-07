@@ -1,0 +1,49 @@
+@keyframes open {
+   0% { 
+      opacity: 0;
+      transform: translateY(200px) scale(0.8);
+   }
+   100% { 
+      opacity: 1;
+      transform: scale(1);;
+   }
+}
+
+.event-dialog {
+   z-index: 9;
+   position: fixed;
+   top: 40px;
+   left: 20px;
+   right: 20px;
+   border-radius: 20px;
+   background: rgba(100,100,100,.98);
+   overflow: hidden;
+   height: 600px;
+   animation: open 0.4s;
+}
+
+.event-dialog p {
+   margin-bottom: 70px;
+}
+
+.event-dialog-inner {
+   position: absolute;
+   top: 60px;
+   left: 40px;
+   right: 40px;
+   bottom: 40px;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.event-dialog .close {
+   position: absolute;
+   background: none;
+   border: none;
+   right: 20px;
+   top: 30px;
+}
+
+.event-dialog .attendee .status {
+   border-color: rgba(100,100,100,.98);
+}

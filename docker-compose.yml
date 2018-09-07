@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  webserver:
+    build: .
+    ports: 
+      - 80:3000
+      - 81:3001
+    environment:
+      - DEV=1
+      - DB_NAME=meetingroom
+      - DB_USER=root
+      - DB_PASS=caffeina
+    volumes:
+      - .:/app
+  
+  database:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=meetingroom
+      - MYSQL_ROOT_PASSWORD=caffeina
+    volumes:
+      - database:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+
+volumes:
+  database:

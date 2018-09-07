@@ -1,0 +1,36 @@
+version: '3'
+
+networks:
+  front-tier:
+    external:
+      name: front-tier
+  internal:
+
+services:
+  webserver:
+    image: registry.caffeina.co/main/caffeina-meetingroom-app
+    restart: always
+    volumes:
+      - ./client_secret.json:/app/client_secret.json
+      - ./credentials.json:/app/credentials.json
+    depends_on:
+      - database
+    networks:
+      - front-tier
+      - internal
+    env_file:
+      - .env
+
+  database:
+    image: mysql:5.7
+    ports:
+      - 65502:3306
+    env_file:
+      - .env
+    volumes:
+      - database:/var/lib/mysql
+    networks:
+      - internal
+
+volumes:
+  database:

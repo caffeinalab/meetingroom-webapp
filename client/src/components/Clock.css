@@ -1,0 +1,51 @@
+.clock {
+   color: #fff;
+   font-size: 12px;
+   margin: 0 auto;
+ }
+ 
+ .clock .date {
+   white-space: pre;
+   font-size: 14px;
+   font-weight: 400;
+   text-align: right;
+   margin-right: 0;
+   margin-top: -7px;
+ }
+ 
+ .clock .time-wrapper {
+   height: 100px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .clock .time {
+   font-size: 62px;
+   font-weight: 400;
+   letter-spacing: -1px;
+   right: -2px;
+    position: absolute;
+ }
+ 
+ .clock .period-seconds {
+   width:  60px;
+   height: 75px;
+   margin-top: 0;
+   margin-left: 15px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   display: none;
+ }
+ 
+ .clock h3:first-child {
+   font-size: 1.602em;
+   font-weight: 400;
+ }
+ 
+ .clock h3:last-child {
+   font-size: 2.566em;
+   margin-top: -17px;
+   font-weight: 400;
+ }

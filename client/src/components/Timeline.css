@@ -1,0 +1,97 @@
+.timeline {
+   width: 90%;
+   display: block;
+   margin: 0 auto;
+   margin-top: 80px;
+   position: relative;
+}
+
+.timeline-steps {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+}
+
+.timeline-events {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   width: 100%;
+}
+
+.timeline-step {
+   position: relative;
+}
+
+.timeline-digit {
+   font-weight: 800;
+   position: absolute;
+   top: -10px;
+   font-size: 20px;
+}
+
+.timeline-border {
+   position: absolute;
+   height: 1px;
+   background: #ccc;
+   top: 0;
+   left: 80px;
+   right: 0;
+}
+
+.timeline-event {
+   position: absolute;
+   border-radius: 10px;
+   left: 100px;
+   right: 20px;
+   margin-top: 1px;
+   overflow: auto;
+   box-sizing: border-box;
+   background: #333;
+}
+
+.timeline-event .event {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  bottom: 10px;
+}
+
+.timeline-event .event .attendee .status {
+   border-color: #333;
+}
+
+.timeline-event .event .attendees {
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.timeline-event .event .attendee.-organizer .sb-avatar,
+.timeline-event .event .attendee.-organizer .sb-avatar__text,
+.timeline-event .event .attendee.-organizer .sb-avatar__image {
+    width: 48px !important;
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 18px !important;
+}
+
+.timeline-event .event .sb-avatar,
+.timeline-event .event .sb-avatar__text,
+.timeline-event .event .sb-avatar__image {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 12px !important;
+}
+
+.timeline-event .event h2 {
+  font-size: 18px;
+}
+
+.timeline-event .event p {
+   display: none;
+}

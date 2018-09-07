@@ -1,0 +1,32 @@
+stages:
+  - build
+  - push
+  - deploy
+
+build:
+  stage: build
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+  only:
+    - tags
+
+push:
+  stage: push
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - tags
+
+deploy:
+  stage: deploy
+  script:
+    - apk add --update curl
+    - resp=$(curl ${DEPLOY_HOST} --data "id=${CI_PROJECT_ID}&branch=master")
+    - if (echo $resp | grep '"success":true'); then exit 0; else echo $resp; exit 1; fi
+  only:
+    - tags
