@@ -27,7 +27,7 @@ services:
       - VIRTUAL_HOST=master.app.meetingroom.caffeina.n2.caffeina.host
       - LETSENCRYPT_HOST=master.app.meetingroom.caffeina.n2.caffeina.host
       - LETSENCRYPT_EMAIL=account@caffeina.com
-      - VIRTUAL_PORT=3000 
+      - VIRTUAL_PORT=3001
 
   database-meetingroom:
     image: mysql:5.7
