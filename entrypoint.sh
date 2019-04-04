@@ -2,7 +2,7 @@
 
 set -ex
 
-while ! nc -z database 3306; do
+while ! nc -z database-meetingroom 3306; do
    sleep 1
 done
 

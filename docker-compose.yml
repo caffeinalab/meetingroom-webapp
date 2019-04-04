@@ -11,10 +11,11 @@ services:
       - DB_NAME=meetingroom
       - DB_USER=root
       - DB_PASS=caffeina
+      - DB_HOST=database-meetingroom
     volumes:
       - .:/app
   
-  database:
+  database-meetingroom:
     image: mysql:5.7
     ports:
       - 3306:3306

@@ -14,7 +14,7 @@ services:
       - ./client_secret.json:/app/client_secret.json
       - ./credentials.json:/app/credentials.json
     depends_on:
-      - database
+      - database-meetingroom
     networks:
       - front-tier
       - internal
@@ -23,8 +23,9 @@ services:
       - DB_NAME=meetingroom
       - DB_USER=root
       - DB_PASS=caffeina
+      - DB_HOST=database-meetingroom
 
-  database:
+  database-meetingroom:
     image: mysql:5.7
     ports:
       - 65502:3306
