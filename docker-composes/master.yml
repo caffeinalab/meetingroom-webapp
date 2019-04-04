@@ -18,7 +18,7 @@ services:
     networks:
       - front-tier
       - internal
-    enviroments:
+    environment:
       - DEV=0
       - DB_NAME=meetingroom
       - DB_USER=root
