@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from "react-router-dom";
 import RoomList from './components/RoomList.jsx';
 import Room from './components/Room.jsx';
 import moment from 'moment';
@@ -42,9 +42,11 @@ class Main extends React.Component {
     return (
       <main>
         <Switch>
-          <Route exact path='/' component={RoomList} />
-          <Route exact path='/rooms' component={RoomList} />
-          <Route path='/rooms/:id' component={Room} />
+          <Route exact path="/" component={RoomList} />
+          <Redirect exact from="/calendars" to="/rooms" />
+          <Route exact path="/rooms" component={RoomList} />
+          <Redirect from="/calendars/:id" to="/rooms/:id" />
+          <Route path="/rooms/:id" component={Room} />
         </Switch>
       </main>
     );

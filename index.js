@@ -19,10 +19,6 @@ app.use('/api', require('./routes/api'));
 app.use(express.static(__dirname + '/client/build'));
 app.use((req, res) => res.send(indexHtml));
 
-app.get("/calendars", function(req, res) {
-  res.redirect("/");
-});
-
 app.listen(pack.port, () => {
 	console.log('Express server listening on port ' + pack.port);
 });
