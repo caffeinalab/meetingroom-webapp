@@ -29,7 +29,7 @@ services:
       - LETSENCRYPT_EMAIL=${$LETSENCRYPT_EMAIL}
       - VIRTUAL_PORT=3001
       - GCP_CREDENTIALS=${GCP_CREDENTIALS}
-
+      - GCP_TOKEN=${GCP_TOKEN}
   database-meetingroom:
     image: ${CI_REGISTRY_IMAGE}/db
     environment:

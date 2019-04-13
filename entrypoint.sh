@@ -2,7 +2,8 @@
 
 set -ex
 
-echo "${GCP_CREDENTIALS}" > /app/credentials.json
+echo "${GCP_CREDENTIALS}" > /app/client_secret.json
+echo "${GCP_TOKEN}" > /app/credentials.json
 
 while ! nc -z database-meetingroom 3306; do
    sleep 1

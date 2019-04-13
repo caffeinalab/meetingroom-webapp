@@ -12,6 +12,7 @@ services:
       - DB_PASS=caffeina
       - DB_HOST=database-meetingroom
       - GCP_CREDENTIALS=${GCP_CREDENTIALS}
+      - GCP_TOKEN=${GCP_TOKEN}
     volumes:
       - .:/app
   
