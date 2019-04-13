@@ -5,6 +5,7 @@ stages:
 
 build:
   stage: build
+  image: registry.caffeina.co/open-source/docker-gitlab-ci:latest
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
@@ -17,6 +18,7 @@ build:
 
 push:
   stage: push
+  image: registry.caffeina.co/open-source/docker-gitlab-ci:latest
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
