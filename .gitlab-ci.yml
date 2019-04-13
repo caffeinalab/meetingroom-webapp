@@ -53,7 +53,7 @@ deploy:
     - rm -rf ${DOCKER_CERT_PATH}
   environment:
     name: master
-    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}/"
+    url: "http://master.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}/"
   #when: manual
   only:
     - tags
