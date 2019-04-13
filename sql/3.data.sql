@@ -82,15 +82,15 @@ LOCK TABLES `rooms` WRITE;
 
 INSERT INTO `rooms` (`id`, `email`, `name`, `capacity`, `arrow`, `video_url`)
 VALUES
-	('1','https://calendar.google.com/calendar/embed?src=caffeina.com_31343434353937313130%40resource.calendar.google.com&ctz=Europe%2FRome','UX Lab','20','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/uxlab.mp4'),
-	('2','https://calendar.google.com/calendar/embed?src=caffeina.com_3939383835383330383330%40resource.calendar.google.com&ctz=Europe%2FRome','Terra di Mezzo','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/terra-di-mezzo.mp4'),
-	('3','https://calendar.google.com/calendar/embed?src=caffeina.com_3132323734363633393236%40resource.calendar.google.com&ctz=Europe%2FRome','Pop Corn','10','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/pop-corn.mp4'),
-	('4','https://calendar.google.com/calendar/embed?src=caffeina.com_3835343432313132363837%40resource.calendar.google.com&ctz=Europe%2FRome','Masnovo','4','right','https://caffeina.s3.amazonaws.com/meetingroom/videos/masnovo.mp4'),
-	('5','https://calendar.google.com/calendar/embed?src=caffeina.com_3332323439343032323232%40resource.calendar.google.com&ctz=Europe%2FRome','Mad Men','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/mad-men.mp4'),
-	('6','https://calendar.google.com/calendar/embed?src=caffeina.com_3731303830353532323736%40resource.calendar.google.com&ctz=Europe%2FRome','Ideas Never Sleep','15','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/ideas-never-sleep.mp4'),
-	('7','https://calendar.google.com/calendar/embed?src=caffeina.com_3534383634353239373534%40resource.calendar.google.com&ctz=Europe%2FRome','Eureka','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/eureka.mp4'),
-	('8','https://calendar.google.com/calendar/embed?src=caffeina.com_3131383238363534343237%40resource.calendar.google.com&ctz=Europe%2FRome','Einstein','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/einstein.mp4'),
-	('9','https://calendar.google.com/calendar/embed?src=caffeina.com_3138383334303239363132%40resource.calendar.google.com&ctz=Europe%2FRome','Caracas','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/caracas.mp4');
+	('1','caffeina.com_31343434353937313130@resource.calendar.google.com','UX Lab','20','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/uxlab.mp4'),
+	('2','caffeina.com_3939383835383330383330@resource.calendar.google.com','Terra di Mezzo','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/terra-di-mezzo.mp4'),
+	('3','caffeina.com_3132323734363633393236@resource.calendar.google.com','Pop Corn','10','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/pop-corn.mp4'),
+	('4','caffeina.com_3835343432313132363837@resource.calendar.google.com','Masnovo','4','right','https://caffeina.s3.amazonaws.com/meetingroom/videos/masnovo.mp4'),
+	('5','caffeina.com_3332323439343032323232@resource.calendar.google.com','Mad Men','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/mad-men.mp4'),
+	('6','caffeina.com_3731303830353532323736@resource.calendar.google.com','Ideas Never Sleep','15','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/ideas-never-sleep.mp4'),
+	('7','caffeina.com_3534383634353239373534@resource.calendar.google.com','Eureka','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/eureka.mp4'),
+	('8','caffeina.com_3131383238363534343237@resource.calendar.google.com','Einstein','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/einstein.mp4'),
+	('9','caffeina.com_3138383334303239363132@resource.calendar.google.com','Caracas','8','left','https://caffeina.s3.amazonaws.com/meetingroom/videos/caracas.mp4');
 
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
