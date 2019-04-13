@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  webserver:
+    image: $CI_REGISTRY_IMAGE/web:${TAG}
+    build: .
+  
+  database-meetingroom:
+    image: $CI_REGISTRY_IMAGE/db:${TAG}
+    build: 
+      context: .
+      dockerfile: mysql.dockerfile
