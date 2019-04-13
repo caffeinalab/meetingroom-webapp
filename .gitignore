@@ -2,3 +2,4 @@ client_secret.json
 credentials.json
 node_modules
 .cache
+.env
