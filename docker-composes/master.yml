@@ -5,14 +5,14 @@ networks:
     external:
       name: front-tier
   internal:
+  
+volumes:
+  database:
 
 services:
   webserver:
-    image: registry.caffeina.co/main/caffeina-meetingroom-app
+    image: ${CI_REGISTRY_IMAGE}/web
     restart: always
-    volumes:
-      - ./client_secret.json:/app/client_secret.json
-      - ./credentials.json:/app/credentials.json
     depends_on:
       - database-meetingroom
     networks:
@@ -24,19 +24,18 @@ services:
       - DB_USER=root
       - DB_PASS=caffeina
       - DB_HOST=database-meetingroom
-      - VIRTUAL_HOST=master.app.meetingroom.caffeina.n2.caffeina.host
-      - LETSENCRYPT_HOST=master.app.meetingroom.caffeina.n2.caffeina.host
-      - LETSENCRYPT_EMAIL=account@caffeina.com
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_EMAIL=${$LETSENCRYPT_EMAIL}
       - VIRTUAL_PORT=3001
+      - GCP_CREDENTIALS=${GCP_CREDENTIALS}
 
   database-meetingroom:
-    image: mysql:5.7
-    ports:
-      - 65502:3306
+    image: ${CI_REGISTRY_IMAGE}/db
     environment:
       - MYSQL_DATABASE=meetingroom
       - MYSQL_ROOT_PASSWORD=caffeina
     volumes:
-      - ./database:/var/lib/mysql
+      - database:/var/lib/mysql
     networks:
       - internal
