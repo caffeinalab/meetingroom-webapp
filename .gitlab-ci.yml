@@ -8,7 +8,10 @@ build:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - export TAG=${CI_COMMIT_SHA}
+    - docker-compose -f docker-compose.build.yml build
+    - export TAG=latest
+    - docker-compose -f docker-compose.build.yml build
   only:
     - tags
 
@@ -17,16 +20,38 @@ push:
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
   script:
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - export TAG=${CI_COMMIT_SHA}
+    - docker-compose -f docker-compose.build.yml push
+    - export TAG=latest
+    - docker-compose -f docker-compose.build.yml push
   only:
     - tags
 
 deploy:
   stage: deploy
+  image: registry.caffeina.co/open-source/docker-gitlab-ci:latest
+  variables:
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_HOST: ${N2_DOCKER_HOST}
+    DOCKER_CERT_PATH: ${N2_DOCKER_CERT_PATH}
+    VIRTUAL_HOST: "master.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}"
+    COMPOSE_PROJECT_NAME: ${CI_PROJECT_NAME}_master
+    DC_FILE: "docker-composes/master.yml"
   script:
-    - apk add --update curl
-    - resp=$(curl ${DEPLOY_HOST} --data "id=${CI_PROJECT_ID}&branch=master")
-    - if (echo $resp | grep '"success":true'); then exit 0; else echo $resp; exit 1; fi
+    # Certs
+    - mkdir -p ${DOCKER_CERT_PATH}
+    - echo "${N2_DOCKER_MACHINE_CA}" > ${DOCKER_CERT_PATH}/ca.pem
+    - echo "${N2_DOCKER_CLIENT_CERT}" > ${DOCKER_CERT_PATH}/cert.pem
+    - echo "${N2_DOCKER_CLIENT_KEY}" > ${DOCKER_CERT_PATH}/key.pem 
+    # Deploy
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker-compose -f ${DC_FILE} pull
+    - docker-compose -f ${DC_FILE} up -d --remove-orphans
+    # Cleanup
+    - rm -rf ${DOCKER_CERT_PATH}
+  environment:
+    name: master
+    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}/"
+  #when: manual
   only:
     - tags
