@@ -15,10 +15,10 @@
     "debug": "~2.6.9",
     "download-file": "^0.1.5",
     "express": "~4.16.0",
-    "googleapis": "^27.0.0",
+    "googleapis": "^43.0.0",
     "mkdirp": "^0.5.1",
     "moment": "^2.22.2",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "mysql": "^2.16.0",
     "utils": "^0.3.1"
   },
